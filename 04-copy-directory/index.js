@@ -3,12 +3,12 @@ const fsPromises = fs.promises;
 const path = require('node:path');
 const NewFile = fsPromises.copyFile;
 
-let copyDir = function(){
+function copyDir(){
     fs.mkdir(path.join(__dirname, 'files-copy'), {
         recursive: true,
     }, err => {
         if(err) {
-            throw new Error('Folder already exsist');
+            throw new Error('Folder already exsists');
         }
     });
 
@@ -18,6 +18,7 @@ let copyDir = function(){
             files.forEach(file => {
                 const filePath = path.join(__dirname, 'files', file);
                 NewFile(filePath, path.join(__dirname, 'files-copy', file));
+
             });
         });
 };

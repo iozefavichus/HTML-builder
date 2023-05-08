@@ -19,8 +19,7 @@ function distDir() {
 distDir();
 
 // создание markup
-
-async function createhtml (templateFile, source, destination) {
+async function markUp (templateFile, source, destination) {
     const htmlWrite = fs.createWriteStream(destination, 'utf-8');
     const files = await fs.promises.readdir(source, {withFileTypes:true});
     const params = {};
@@ -40,9 +39,7 @@ async function createhtml (templateFile, source, destination) {
     htmlWrite.write(result, 'utf-8');
   }
 
-createhtml(path.join(__dirname, 'template.html'), path.join(__dirname, 'components'), path.join(dist, 'index.html'));
-
-
+  markUp(path.join(__dirname, 'template.html'), path.join(__dirname, 'components'), path.join(dist, 'index.html'));
 
 //копируем стили
 function copyStyles() {
@@ -67,7 +64,7 @@ function copyStyles() {
 copyStyles();
 
 // перенос папки assets в папку project-dist
-let copyDir = function(){
+function copyDir(){
     fs.mkdir(path.join(dist, 'assets'), {
         recursive: true,
     }, err => {
