@@ -13,7 +13,7 @@ fsPromises.readdir(path.join(__dirname, 'secret-folder'), {
       fsPromises
         .stat(Path)
         .then(res => {
-          console.log(`${Name.replace(ext, '')} - ${ext.replace('.', '')} - ${Number(res.size / 2000).toFixed(3)}kb`)
+          console.log(`${Name.replace(ext, '')} - ${ext.replace('.', '')} - ${Number(res.size / 2000).toFixed(3)}kb`);
         });
     }
   });

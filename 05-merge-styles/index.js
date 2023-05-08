@@ -18,5 +18,5 @@ fsPromises
           output.write(data.toString() + '\n');
         });
       }
-     });
+    });
   });
